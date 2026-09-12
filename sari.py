@@ -462,11 +462,10 @@ def verificar_webhook():
     challenge = request.args.get("hub.challenge")
 
     if mode == "subscribe" and token == META_VERIFY_TOKEN:
-        return challenge, 200
+        return str(challenge), 200
 
     return "Token incorrecto", 403
-
-
+    
 @app.route("/webhook", methods=["POST"])
 def recibir_mensaje():
     if not validar_firma_meta():
