@@ -461,7 +461,7 @@ def verificar_webhook():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
 
-    if mode == "subscribe" and token == META_VERIFY_TOKEN:
+    if mode == "subscribe" and token == "ironworks_mily_2026":
         return str(challenge), 200
 
     return "Token incorrecto", 403
