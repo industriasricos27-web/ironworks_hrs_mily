@@ -43,7 +43,7 @@ if not GOOGLE_FOLDER_ID:
 ruta_json = r"C:\Users\UseR\Downloads\credentials.json"
 
 if not os.path.exists(ruta_json):
-    raise RuntimeError(f"No se encontró el archivo de credenciales en {ruta_json}")
+    # raise RuntimeError(f"No se encontró el archivo de credenciales en {ruta_json}")
 
 with open(ruta_json, "r", encoding="utf-8") as f:
     GOOGLE_SERVICE_ACCOUNT_JSON = f.read()
