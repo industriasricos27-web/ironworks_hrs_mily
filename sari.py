@@ -47,7 +47,7 @@ if not os.path.exists(ruta_json):
 
 # with open(ruta_json, "r", encoding="utf-8") as f:
   # GOOGLE_SERVICE_ACCOUNT_JSON = f.read()
-
+GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
 
 GOOGLE_SCOPES = [
     "https://www.googleapis.com/auth/drive.readonly",
