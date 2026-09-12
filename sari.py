@@ -58,15 +58,21 @@ GOOGLE_SCOPES = [
 
 
 def crear_servicios_google():
+    if not GOOGLE_SERVICE_ACCOUNT_JSON:
+        print("Aviso: No se configuró GOOGLE_SERVICE_ACCOUNT_JSON. Se omite el servicio de Google Drive.")
+        return None, None
+    try:
+        datos_credenciales = json.loads(GOOGLE_SERVICE_ACCOUNT_JSON)
+        credenciales = service_account.Credentials.from_service_account_info(
+            datos_credenciales,
+            scopes=GOOGLE_SCOPES
+        )
+        # Aquí continúa la creación de los servicios si existen credenciales
+        return credenciales, None
+    except Exception as e:
+        print(f"Error cargando credenciales de Google: {e}")
+        return None, None
 
-    datos_credenciales = json.loads(
-        GOOGLE_SERVICE_ACCOUNT_JSON
-    )
-
-    credenciales = service_account.Credentials.from_service_account_info(
-        datos_credenciales,
-        scopes=GOOGLE_SCOPES
-    )
 
     drive = build(
         "drive",
