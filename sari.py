@@ -121,7 +121,7 @@ META_APP_SECRET = os.environ.get(
 
 
 if not META_ACCESS_TOKEN:
-    raise RuntimeError(
+    # raise RuntimeError(
         "No se encontró META_ACCESS_TOKEN."
     )
 
